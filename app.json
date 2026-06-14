@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "name": "Tunnu NotePro",
+    "slug": "tunnu-notepro",
+    "version": "1.0.0",
+    "sdkVersion": "49.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.tunnu.notepro"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "6987c2ee-20a5-4894-8f1b-34ea19313b68"
+      }
+    }
+  }
+}
