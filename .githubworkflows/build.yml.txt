@@ -1,0 +1,27 @@
+name: Build Tunnu NotePro APK
+on:
+  push:
+    branches:
+      - main # বা আপনার মেইন ব্রাঞ্চের নাম
+
+jobs:
+  build:
+    runs-packages: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Setup EAS CLI
+        run: npm install -g eas-cli
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Build APK Locally on GitHub
+        run: eas build --platform android --profile preview --local
