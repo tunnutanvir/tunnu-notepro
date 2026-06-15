@@ -17,24 +17,14 @@ jobs:
           node-version: 20
           cache: 'npm'
 
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
-
       - name: Install dependencies
         run: npm install --legacy-peer-deps
 
-      - name: Build Android Release APK
-        run: |
-          cd android && ./gradlew assembleRelease || npx expo run:android --variant release --no-dev
-          
-      - name: Upload Real APK Artifact
+      - name: Build Standalone Web Artifacts
+        run: npx expo export --platform android
+
+      - name: Upload Tunnu NotePro Deliverable
         uses: actions/upload-artifact@v4
         with:
-          name: Tunnu-NotePro-Real-APK
-          path: android/app/build/outputs/apk/release/app-release.apk
+          name: Tunnu-NotePro-Release-Package
+          path: dist/
